@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Harmic - Login | Register</title>
+    <title>Login</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,46 +45,6 @@
 
     <!-- Begin Main Header Area -->
     <header class="main-header_area position-relative">
-        <div class="header-top border-bottom d-none d-md-block">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <div class="header-top-left">
-                            <ul class="dropdown-wrap text-matterhorn">
-                                <li class="dropdown">
-                                    <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        English
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="languageButton">
-                                        <li><a class="dropdown-item" href="#">French</a></li>
-                                        <li><a class="dropdown-item" href="#">Italian</a></li>
-                                        <li><a class="dropdown-item" href="#">Spanish</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="currencyButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                        USD
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="currencyButton">
-                                        <li><a class="dropdown-item" href="#">GBP</a></li>
-                                        <li><a class="dropdown-item" href="#">ISO</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    Call Us
-                                    <a href="tel://3965410">3965410</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="header-top-right text-matterhorn">
-                            <p class="shipping mb-0">Free delivery on order over <span>$200</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="header-middle py-5">
             <div class="container">
                 <div class="row align-items-center">
@@ -115,7 +75,7 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
 <%--                                            <li><a class="dropdown-item" href="my-account.html">My account</a></li>--%>
-                                            <li><a class="dropdown-item" href="login-register.html">Login</a></li>
+
                                             <li><a class="dropdown-item" href="login-register.html">Login as admin</a></li>
                                         </ul>
                                     </li>
@@ -484,60 +444,6 @@
                 </div>
             </div>
         </div>
-        <div class="offcanvas-minicart_wrapper" id="miniCart">
-            <div class="harmic-offcanvas-body">
-                <div class="minicart-content">
-                    <div class="minicart-heading">
-                        <h4 class="mb-0">Shopping Cart</h4>
-                        <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
-                    </div>
-                    <ul class="minicart-list">
-                        <li class="minicart-product">
-                            <a class="product-item_remove" href="#"><i
-                                    class="pe-7s-close"></i></a>
-                            <a href="shop.html" class="product-item_img">
-                                <img class="img-full" src="assets/images/product/small-size/1-1-112x124.jpg" alt="Product Image">
-                            </a>
-                            <div class="product-item_content">
-                                <a class="product-item_title" href="shop.html">Black Pepper Grains</a>
-                                <span class="product-item_quantity">1 x $80.00</span>
-                            </div>
-                        </li>
-                        <li class="minicart-product">
-                            <a class="product-item_remove" href="#"><i
-                                    class="pe-7s-close"></i></a>
-                            <a href="shop.html" class="product-item_img">
-                                <img class="img-full" src="assets/images/product/small-size/1-2-112x124.jpg" alt="Product Image">
-                            </a>
-                            <div class="product-item_content">
-                                <a class="product-item_title" href="shop.html">Peanut Big Bean</a>
-                                <span class="product-item_quantity">1 x $80.00</span>
-                            </div>
-                        </li>
-                        <li class="minicart-product">
-                            <a class="product-item_remove" href="#">
-                                <i class="pe-7s-close"></i>
-                            </a>
-                            <a href="shop.html" class="product-item_img">
-                                <img class="img-full" src="assets/images/product/small-size/1-3-112x124.jpg" alt="Product Image">
-                            </a>
-                            <div class="product-item_content">
-                                <a class="product-item_title" href="shop.html">Dried Lemon Green</a>
-                                <span class="product-item_quantity">1 x $80.00</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="minicart-item_total">
-                    <span>Subtotal</span>
-                    <span class="ammount">$240.00</span>
-                </div>
-                <div class="group-btn_wrap d-grid gap-2">
-                    <a href="cart.html" class="btn btn-secondary btn-primary-hover">View Cart</a>
-                    <a href="checkout.html" class="btn btn-secondary btn-primary-hover">Checkout</a>
-                </div>
-            </div>
-        </div>
         <div class="global-overlay"></div>
     </header>
     <!-- Main Header Area End Here -->
@@ -557,7 +463,7 @@
                                         <input type="text" placeholder="Username" name="username">
                                     </div>
                                     <div class="col-lg-12">
-                                        <label>Password</label>
+                                        <label>Password*</label>
                                         <input type="password" placeholder="Password" name="password">
                                     </div>
                                     <div class="col-lg-12 pt-5 text-center">
