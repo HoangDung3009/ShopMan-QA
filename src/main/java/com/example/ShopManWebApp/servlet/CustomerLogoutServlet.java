@@ -5,15 +5,18 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ProductList", value = "/ProductList")
-public class ProductListServlet extends HttpServlet {
+@WebServlet(name = "CustomerLogout", value = "/CustomerLogout")
+public class CustomerLogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("views/product-list.jsp").forward(request,response);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        HttpSession httpSession = request.getSession();
+        httpSession.removeAttribute("current-customer");
+        httpSession.setAttribute("message", "You are Successfully logout !!!");
+        response.sendRedirect("views/customer-login.jsp");
     }
 }

@@ -11,27 +11,29 @@ public class CustomerDAO extends DAO{
     static final Logger logger = Logger.getLogger(DAO.class.getName());
 
     public CustomerDAO() {
+        super();
     }
 
     public Customer checkLogin(String username, String password){
-        Customer c = new Customer();
-        String query = "select * from customers where username = ? and password = ?";
+        Customer c = null;
+        String query = "SELECT * FROM customers WHERE Username = ? AND Password = ?" ;
         try{
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, username);
-            ps.setString(2,password);
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                c.setId(rs.getInt("ID"));
-                c.setCusName(rs.getString("Cus_name"));
-                c.setPhone(rs.getString("Phone"));
-                c.setEmail(rs.getString("Email"));
-                c.setUsername(rs.getString("Username"));
-                c.setPassword(rs.getString("Password"));
-                c.setCreditCard(rs.getString("CreditCard"));
-                c.setCreditCardType(rs.getString("CreditCardTypeID"));
-                c.setCardExpMonth(rs.getString("CardExpMon"));
-                c.setCardExpYear(rs.getString("CardExpYr"));
+                c = new Customer();
+                c.setId(rs.getInt(1));
+                c.setCusName(rs.getString(2));
+                c.setPhone(rs.getString(3));
+                c.setEmail(rs.getString(4));
+                c.setUsername(rs.getString(5));
+                c.setPassword(rs.getString(6));
+                c.setPassword(rs.getString(7));
+                c.setPassword(rs.getString(8));
+                c.setPassword(rs.getString(9));
+                c.setPassword(rs.getString(10));
             }
         }catch (Exception e){
             logger.log(Level.SEVERE, "Fail checkLogin", e);

@@ -11,6 +11,7 @@ public class StaffDAO extends DAO{
     static final Logger logger = Logger.getLogger(DAO.class.getName());
 
     public StaffDAO() {
+        super();
     }
 
     public Staff checkLogin(String username, String password){
@@ -27,7 +28,6 @@ public class StaffDAO extends DAO{
                 staff.setEmail(rs.getString("Email"));
                 staff.setUsername(rs.getString("Username"));
                 staff.setPassword(rs.getString("Password"));
-
             }
         }catch (Exception e){
             logger.log(Level.SEVERE, "Fail checkLogin", e);

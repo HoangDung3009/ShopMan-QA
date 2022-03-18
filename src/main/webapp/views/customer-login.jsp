@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -18,24 +19,24 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="<%=request.getContextPath()%>/assets/images/favicon.ico" />
 
     <!-- CSS
     ============================================ -->
 
     <!-- Vendor CSS (Contain Bootstrap, Icon Fonts) -->
-    <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/css/vendor/Pe-icon-7-stroke.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/vendor/font-awesome.min.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/vendor/Pe-icon-7-stroke.css" />
 
     <!-- Plugin CSS (Global Plugins Files) -->
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.min.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/plugins/animate.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/plugins/jquery-ui.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/plugins/magnific-popup.min.css" />
 
     <!-- Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css">
 
 </head>
 
@@ -51,7 +52,7 @@
                     <div class="col-lg-12">
                         <div class="header-middle-wrap">
                             <a href="index.html" class="header-logo">
-                                <img src="assets/images/logo/dark.png" alt="Header Logo">
+                                <img src="<%=request.getContextPath()%>/assets/images/logo/dark.png" alt="Header Logo">
                             </a>
 <%--                            <div class="header-search-area d-none d-lg-block">--%>
 <%--                                <form action="#" class="header-searchbox">--%>
@@ -450,11 +451,13 @@
 
     <!-- Begin Main Content Area -->
     <main class="main-content">
+
         <div class="login-register-area section-space-y-axis-100">
+            <%@include file="../layout/message.jsp" %>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6">
-                        <form action="#">
+                        <form action="CustomerLogin" method="post">
                             <div class="login-form">
                                 <h4 class="login-title">Login</h4>
                                 <div class="row">
@@ -510,22 +513,22 @@
 <!-- Global Vendor, plugins JS -->
 
 <!-- Vendor JS -->
-<script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-<script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
-<script src="assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
-<script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-<script src="assets/js/vendor/jquery.waypoints.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/vendor/bootstrap.bundle.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/vendor/jquery-3.5.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/vendor/jquery-migrate-3.3.0.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/vendor/jquery.waypoints.js"></script>
 
 <!--Plugins JS-->
-<script src="assets/js/plugins/wow.min.js"></script>
-<script src="assets/js/plugins/jquery-ui.min.js"></script>
-<script src="assets/js/plugins/swiper-bundle.min.js"></script>
-<script src="assets/js/plugins/jquery.nice-select.js"></script>
-<script src="assets/js/plugins/parallax.min.js"></script>
-<script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/plugins/wow.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/plugins/jquery-ui.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/plugins/swiper-bundle.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/plugins/jquery.nice-select.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/plugins/parallax.min.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/plugins/jquery.magnific-popup.min.js"></script>
 
 <!--Main JS (Common Activation Codes)-->
-<script src="assets/js/main.js"></script>
+<script src="<%=request.getContextPath()%>/assets/js/main.js"></script>
 
 </body>
 

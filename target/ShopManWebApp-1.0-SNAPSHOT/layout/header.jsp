@@ -1,59 +1,64 @@
+<%@ page import="com.example.ShopManWebApp.model.OrderDetail" %><%
+    Customer c1 = (Customer) session.getAttribute("current-customer");
+    List<OrderDetail> cart = (List<OrderDetail>) session.getAttribute("cart");
+%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header class="main-header_area position-relative">
     <div class="header-middle py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="header-middle-wrap">
-                        <a href="index.html" class="header-logo">
-                            <img src="assets/images/logo/dark.png" alt="Header Logo">
+                        <a href="<%=request.getContextPath()%>/views/product-list.jsp" class="header-logo">
+                            <img src="<%=request.getContextPath()%>/assets/images/logo/dark.png" alt="Header Logo">
                         </a>
-                        <%--                            <div class="header-search-area d-none d-lg-block">--%>
-                        <%--                                <form action="#" class="header-searchbox">--%>
-                        <%--                                    <select class="nice-select select-search-category wide">--%>
-                        <%--                                        <option value="all">All Category</option>--%>
-                        <%--                                        <option value="product-item">Product Item</option>--%>
-                        <%--                                        <option value="product-item-2">Product Item 02</option>--%>
-                        <%--                                        <option value="product-item-3">Product Item 03</option>--%>
-                        <%--                                        <option value="product-item-4">Product Item 04</option>--%>
-                        <%--                                        <option value="product-item-5">Product Item 05</option>--%>
-                        <%--                                    </select>--%>
-                        <%--                                    <input class="input-field" type="text" placeholder="Search Products">--%>
-                        <%--                                    <button class="btn btn-outline-whisper btn-primary-hover" type="submit"><i class="pe-7s-search"></i></button>--%>
-                        <%--                                </form>--%>
-                        <%--                            </div>--%>
+                        <div class="header-search-area d-none d-lg-block">
+                            <form action="Search" class="header-searchbox" method="post">
+                                <input class="input-field" type="text" placeholder="Search Products" name="search-key">
+                                <button class="btn btn-outline-whisper btn-primary-hover" type="submit"><i
+                                        class="pe-7s-search"></i></button>
+                            </form>
+                        </div>
                         <div class="header-right">
                             <ul>
                                 <li class="dropdown d-none d-md-block">
-                                    <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button"
+                                            id="settingButton" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="pe-7s-users"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
-                                        <%--                                            <li><a class="dropdown-item" href="my-account.html">My account</a></li>--%>
-
-                                        <li><a class="dropdown-item" href="login-register.html">Login as admin</a></li>
+                                        <li><a class="dropdown-item" href="customer-account.jsp">Hello, <%=c1.getUsername()%></a></li>
+                                        <li><a class="dropdown-item" href="customer-account.jsp">My account</a></li>
+                                        <li><a class="dropdown-item" href="CustomerLogout">Log out</a></li>
                                     </ul>
                                 </li>
-                                <%--                                    <li class="d-none d-md-block">--%>
-                                <%--                                        <a href="wishlist.html">--%>
-                                <%--                                            <i class="pe-7s-like"></i>--%>
-                                <%--                                        </a>--%>
-                                <%--                                    </li>--%>
+                                <li class="d-none d-md-block">
+                                    <a href="wishlist.html">
+                                        <i class="pe-7s-like"></i>
+                                    </a>
+                                </li>
                                 <li class="d-block d-lg-none">
                                     <a href="#searchBar" class="search-btn toolbar-btn">
                                         <i class="pe-7s-search"></i>
                                     </a>
                                 </li>
-                                <%--                                    <li class="minicart-wrap me-3 me-lg-0">--%>
-                                <%--                                        <a href="#miniCart" class="minicart-btn toolbar-btn">--%>
-                                <%--                                            <i class="pe-7s-shopbag"></i>--%>
-                                <%--                                            <span class="quantity">3</span>--%>
-                                <%--                                        </a>--%>
-                                <%--                                    </li>--%>
-                                <%--                                    <li class="mobile-menu_wrap d-block d-lg-none">--%>
-                                <%--                                        <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">--%>
-                                <%--                                            <i class="pe-7s-menu"></i>--%>
-                                <%--                                        </a>--%>
-                                <%--                                    </li>--%>
+
+                                <li class="minicart-wrap me-3 me-lg-0">
+                                    <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                        <i class="pe-7s-shopbag"></i>
+                                        <%if (cart != null){
+                                        %>
+                                        <span class="quantity"><%=cart.size()%></span>
+                                        <%
+                                            }
+                                        %>
+                                    </a>
+                                </li>
+                                <li class="mobile-menu_wrap d-block d-lg-none">
+                                    <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0">
+                                        <i class="pe-7s-menu"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -70,7 +75,7 @@
                             <nav class="main-nav">
                                 <ul>
                                     <li>
-                                        <a href="contact.html">Shop</a>
+                                        <a href="<%=request.getContextPath()%>/views/product-list.jsp">Shop</a>
                                     </li>
                                     <li>
                                         <a href="contact.html">About</a>
@@ -98,7 +103,8 @@
                     </div>
                     <ul class="dropdown-wrap justify-content-center text-silver">
                         <li class="dropdown dropup">
-                            <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButtonTwo"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                 English
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="languageButtonTwo">
@@ -108,7 +114,8 @@
                             </ul>
                         </li>
                         <li class="dropdown dropup">
-                            <button class="btn btn-link dropdown-toggle ht-btn usd-dropdown" type="button" id="currencyButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-link dropdown-toggle ht-btn usd-dropdown" type="button"
+                                    id="currencyButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
                                 USD
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="currencyButtonTwo">
@@ -117,7 +124,8 @@
                             </ul>
                         </li>
                         <li class="dropdown dropup">
-                            <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButtonTwo"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="pe-7s-users"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButtonTwo">
