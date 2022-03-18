@@ -44,7 +44,7 @@
 <div class="main-wrapper">
 
     <!-- Begin Main Header Area -->
-
+    <%@include file="../layout/header.jsp" %>
     <!-- Main Header Area End Here -->
 
     <!-- Begin Main Content Area -->
@@ -52,7 +52,7 @@
     <!-- Main Content Area End Here -->
 
     <!-- Begin Footer Area -->
-
+    <%@include file="../layout/footer.jsp" %>
     <!-- Footer Area End Here -->
 
     <!-- Begin Scroll To Top -->
