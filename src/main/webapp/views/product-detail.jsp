@@ -8,12 +8,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="zxx">
+<%
+    String product_id = "";
+    if(request.getParameter("product_id") != null){
+        product_id = request.getParameter("product_id");
+    }
+    int id = Integer.parseInt(product_id);
 
+    ProductDAO productDAO = new ProductDAO();
+    DecimalFormat df = new DecimalFormat("#,###.##");
+
+    Product product = productDAO.getProductById(id);
+%>
 <head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product List</title>
+    <title><%=product.getProdName()%></title>
     <meta name="robots" content="noindex, follow"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,24 +72,13 @@
         <div class="single-product-area section-space-top-100">
             <div class="container">
                 <div class="row">
-                    <%
-                        String product_id = "";
-                        if(request.getParameter("product_id") != null){
-                            product_id = request.getParameter("product_id");
-                        }
-                        int id = Integer.parseInt(product_id);
 
-                        ProductDAO productDAO = new ProductDAO();
-                        DecimalFormat df = new DecimalFormat("#,###.##");
-
-                        Product product = productDAO.getProductById(id);
-                    %>
                     <div class="col-lg-6">
                         <div class="single-product-img h-100">
                             <div class="swiper-container single-product-slider">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <a href="<%=request.getContextPath()%>/assets/images/product/large-size/2-1-555x645.jpg" class="single-img gallery-popup">
+                                        <a href="<%=request.getContextPath()%>/assets/images/product/<%=product.getPicture()%>" class="single-img gallery-popup">
                                             <img class="img-full" style="width: 555px; height: 645px;" src="<%=request.getContextPath()%>/assets/images/product/<%=product.getPicture()%>" alt="Product Image">
                                         </a>
                                     </div>
@@ -107,7 +107,23 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <p class="short-desc mb-6">{{ product_details.product_description }}</p>
+                                    <div class="product-category text-matterhorn pb-2">
+                                        <span class="title">Size :</span>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)"><%=product.getSize()%></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-category text-matterhorn pb-2">
+                                        <span class="title">Unit ín stock :</span>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)"><%=product.getUnitInStock()%></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p class="short-desc mb-6"></p>
                                     <form action="${pageContext.request.contextPath}/Cart" method="post">
                                         <ul class="quantity-with-btn pb-7">
                                             <li class="quantity">
@@ -118,16 +134,24 @@
                                                 </div>
                                             </li>
                                             <li class="add-to-cart">
-                                                <input class="btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0" type="submit" value="Add cart"/>
+                                                <input class="btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0" type="submit" value="Add cart" onclick="alert('Add to Cart Successfully')"/>
                                             </li>
                                         </ul>
                                     </form>
 
                                     <div class="product-category text-matterhorn pb-2">
-                                        <span class="title">Categories :</span>
+                                        <span class="title">Category :</span>
                                         <ul>
                                             <li>
                                                 <a href="javascript:void(0)"><%=product.getCategory().getCatName()%></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-category text-matterhorn pb-2">
+                                        <span class="title">Supplier :</span>
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0)"><%=product.getSupplier().getSupName()%></a>
                                             </li>
                                         </ul>
                                     </div>

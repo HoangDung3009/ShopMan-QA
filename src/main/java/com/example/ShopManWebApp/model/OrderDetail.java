@@ -1,6 +1,7 @@
 package com.example.ShopManWebApp.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class OrderDetail implements Serializable {
     private int id;
@@ -8,6 +9,15 @@ public class OrderDetail implements Serializable {
     private double totalPrice;
     private Order order;
     private Product product;
+    private String ship_date;
+
+    public String getShip_date() {
+        return ship_date;
+    }
+
+    public void setShip_date(String ship_date) {
+        this.ship_date = ship_date;
+    }
 
     public int getId() {
         return id;

@@ -16,7 +16,7 @@ public class CustomerLogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
         httpSession.removeAttribute("current-customer");
-        httpSession.setAttribute("message", "You are Successfully logout !!!");
+        httpSession.removeAttribute("cart");
         response.sendRedirect("views/customer-login.jsp");
     }
 }

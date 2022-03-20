@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product List</title>
+    <title>Cart</title>
     <meta name="robots" content="noindex, follow"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,8 @@
     <%@ page import="java.text.DecimalFormat" %>
     <%
         Customer c = (Customer) session.getAttribute("current-customer");
-
+        List<OrderDetail> cart = (List<OrderDetail>) session.getAttribute("cart");
+        DecimalFormat df = new DecimalFormat("#,###.##");
     %>
     <!-- Begin Main Header Area -->
     <%@include file="../layout/header.jsp" %>
@@ -65,6 +66,13 @@
                     <form action="javascript:void(0)">
                         <div class="table-content table-responsive">
                             <table class="table">
+                                <%
+                                    double total = 0;
+
+                                %>
+                                <%if (cart != null) {
+
+                                %>
                                 <thead>
                                 <tr>
                                     <th class="product_remove">remove</th>
@@ -77,33 +85,55 @@
                                 </thead>
                                 <tbody>
                                 <tr>
+                                    <%for (OrderDetail o : cart){
+
+                                        o.setTotalPrice(o.getProduct().getPrice() * o.getQuantity());
+                                    %>
                                     <td class="product_remove">
-                                        <a href="javascript:void(0)">
+                                        <a href="${pageContext.request.contextPath}/Cart?command=removeFromCart&product_id=<%=o.getProduct().getId()%>">
                                             <i class="pe-7s-close" title="Remove"></i>
                                         </a>
                                     </td>
                                     <td class="product-thumbnail">
                                         <a href="javascript:void(0)">
-                                            <img src="<%=request.getContextPath()%>/assets/images/product/small-size/1-1-112x124.jpg" alt="Cart Thumbnail">
+                                            <img src="<%=request.getContextPath()%>/assets/images/product/<%=o.getProduct().getPicture()%>" style="width: 112px; height: 124px;" alt="Cart Thumbnail">
                                         </a>
                                     </td>
-                                    <td class="product-name"><a href="javascript:void(0)">Black Pepper Grains</a></td>
-                                    <td class="product-price"><span class="amount">$80.00</span></td>
+                                    <td class="product-name"><a href="javascript:void(0)"><%=o.getProduct().getProdName()%></a></td>
+                                    <td class="product-price"><span class="amount"><%=df.format(o.getProduct().getPrice())%>VNĐ</span></td>
                                     <td class="quantity">
-                                        <div class="cart-plus-minus">
-                                            <input class="cart-plus-minus-box" value="1" type="text">
+                                        <div class="">
+                                            <a class="btn btn-sm" href="${pageContext.request.contextPath}/Cart?command=deleteFromCart&product_id=<%=o.getProduct().getId()%>"> - </a>
+                                            <%=o.getQuantity()%>
+                                            <a class="btn btn-sm" href="${pageContext.request.contextPath}/Cart?command=addCart&product_id=<%=o.getProduct().getId()%>"> + </a>
                                         </div>
                                     </td>
-                                    <td class="product-subtotal"><span class="amount">$80.00</span></td>
+                                    <td class="product-subtotal"><span class="amount"><%=df.format(o.getTotalPrice())%> VNĐ</span></td>
                                 </tr>
+                                <%
+                                        total += o.getTotalPrice();
+                                    }
+                                %>
                                 </tbody>
                             </table>
+                            <%
+                                }
+                            %>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div class="coupon-all">
                                     <div class="coupon2">
-                                        <input class="button" name="update_cart" value="Remove cart" type="submit">
+                                        <% if (cart.size() > 0) {
+
+                                        %>
+                                        <form action="${pageContext.request.contextPath}/Cart" method="post">
+                                            <input type="hidden" name="command" value="removeAll">
+                                            <input class="button" name="remove_cart" value="Remove All" type="submit">
+                                        </form>
+                                        <%
+                                            }
+                                        %>
                                     </div>
                                 </div>
                             </div>
@@ -114,10 +144,14 @@
                                 <div class="cart-page-total">
                                     <h2>Cart totals</h2>
                                     <ul>
-                                        <li>Subtotal <span>$118.60</span></li>
-                                        <li>Total <span>$118.60</span></li>
+                                        <li>Total <span><%=df.format(total)%> VNĐ</span></li>
                                     </ul>
-                                    <a href="javascript:void(0)">Proceed to checkout</a>
+                                    <%if (cart.size() > 0) { %>
+                                    <a href="checkout.jsp">Proceed to checkout</a>
+                                    <%
+                                    }
+                                    %>
+
                                 </div>
                             </div>
                         </div>

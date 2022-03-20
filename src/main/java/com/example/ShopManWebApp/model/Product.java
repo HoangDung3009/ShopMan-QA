@@ -14,11 +14,13 @@ public class Product implements Serializable {
     private String description;
     private Supplier supplier;
     private Category category;
+    private int unitInStock;
+    private int unitSold;
 
     public Product() {
     }
 
-    public Product(int id, String prodName, double price, String color, String size, String picture, String status, double discount, String description, Supplier supplier, Category category) {
+    public Product(int id, String prodName, double price, String color, String size, String picture, String status, double discount, String description, Supplier supplier, Category category, int unitInStock, int unitSold) {
         this.id = id;
         this.prodName = prodName;
         this.price = price;
@@ -30,6 +32,24 @@ public class Product implements Serializable {
         this.description = description;
         this.supplier = supplier;
         this.category = category;
+        this.unitInStock = unitInStock;
+        this.unitSold = unitSold;
+    }
+
+    public int getUnitInStock() {
+        return unitInStock;
+    }
+
+    public void setUnitInStock(int unitInStock) {
+        this.unitInStock = unitInStock;
+    }
+
+    public int getUnitSold() {
+        return unitSold;
+    }
+
+    public void setUnitSold(int unitSold) {
+        this.unitSold = unitSold;
     }
 
     public int getId() {

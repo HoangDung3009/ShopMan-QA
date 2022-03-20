@@ -30,7 +30,9 @@ public class SearchServlet extends HttpServlet {
             searchProducts = produdctDAO.searchProduct(keyword);
         }
 
-        request.setAttribute("search-result", searchProducts);
-        request.getRequestDispatcher("views/search-list.jsp").forward(request,response);
+        HttpSession session = request.getSession();
+        session.setAttribute("search-result", searchProducts);
+        session.setAttribute("search-key", keyword);
+        response.sendRedirect("views/search-list.jsp");
     }
 }

@@ -66,6 +66,13 @@ public class CartServlet extends HttpServlet {
                 session.setAttribute("cart", cart);
                 response.sendRedirect("views/cart.jsp");
             }
+            else if (command.equals("removeAll")){
+                removeAll();
+
+                HttpSession session = request.getSession();
+                session.setAttribute("cart", cart);
+                response.sendRedirect("views/cart.jsp");
+            }
     }
 //    Tao gio hang
     private String setCart(Product p, int s){
@@ -116,6 +123,11 @@ public class CartServlet extends HttpServlet {
                 return "cart";
             }
         }
+        return "cart";
+    }
+    //Xoa het san pham khoi gio hang
+    private String removeAll(){
+        cart.clear();
         return "cart";
     }
 }

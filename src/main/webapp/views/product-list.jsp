@@ -86,15 +86,15 @@
                                                          src="<%=request.getContextPath()%>/assets/images/product/<%=product.getPicture()%>"
                                                          alt="Product Images">
                                                 </a>
-                                                <div class="product-add-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="cart.html">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                    <div class="product-add-action">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="${pageContext.request.contextPath}/Cart?command=addCart&product_id=<%=product.getId()%>" onclick="alert('Added to cart !!')">
+                                                                    <i class="pe-7s-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                             </div>
                                             <div class="product-content">
                                                 <a class="product-name" href="single-product.html"><%=product.getProdName()%></a>
@@ -141,7 +141,9 @@
 </div>
 
 <!-- Global Vendor, plugins JS -->
+<script>
 
+</script>
 <!-- JS Files
 ============================================ -->
 <!-- Global Vendor, plugins JS -->

@@ -1332,7 +1332,6 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     <column id="382" parent="356" name="Ship_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
     <column id="383" parent="356" name="OrderID">
       <Position>5</Position>
@@ -1401,293 +1400,312 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     <column id="396" parent="357" name="StaffID">
       <Position>7</Position>
       <DataType>int(10)|0s</DataType>
-      <NotNull>1</NotNull>
     </column>
-    <index id="397" parent="357" name="FKOrders913905">
+    <column id="397" parent="357" name="Receive_date">
+      <Position>8</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="398" parent="357" name="Status">
+      <Position>9</Position>
+      <DataType>varchar(50)|0s</DataType>
+    </column>
+    <index id="399" parent="357" name="FKOrders913905">
       <ColNames>ShipperID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="398" parent="357" name="FKOrders911524">
+    <index id="400" parent="357" name="FKOrders911524">
       <ColNames>CustomerID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="399" parent="357" name="FKOrders875725">
+    <index id="401" parent="357" name="FKOrders875725">
       <ColNames>PaymentID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="400" parent="357" name="FKOrders766568">
+    <index id="402" parent="357" name="FKOrders766568">
       <ColNames>ShippingAddressID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="401" parent="357" name="FKOrders534774">
+    <index id="403" parent="357" name="FKOrders534774">
       <ColNames>StaffID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="402" parent="357" name="PRIMARY">
+    <key id="404" parent="357" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="403" parent="357" name="FKOrders913905">
+    <foreign-key id="405" parent="357" name="FKOrders913905">
       <ColNames>ShipperID</ColNames>
       <RefTableName>shippers</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="404" parent="357" name="FKOrders911524">
+    <foreign-key id="406" parent="357" name="FKOrders911524">
       <ColNames>CustomerID</ColNames>
       <RefTableName>customers</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="405" parent="357" name="FKOrders875725">
+    <foreign-key id="407" parent="357" name="FKOrders875725">
       <ColNames>PaymentID</ColNames>
       <RefTableName>payments</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="406" parent="357" name="FKOrders766568">
+    <foreign-key id="408" parent="357" name="FKOrders766568">
       <ColNames>ShippingAddressID</ColNames>
       <RefTableName>shippingaddress</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="407" parent="357" name="FKOrders534774">
+    <foreign-key id="409" parent="357" name="FKOrders534774">
       <ColNames>StaffID</ColNames>
       <RefTableName>staffs</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="408" parent="358" name="ID">
+    <column id="410" parent="358" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="409" parent="358" name="Method">
+    <column id="411" parent="358" name="Method">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="410" parent="358" name="Allowed">
+    <column id="412" parent="358" name="Allowed">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="411" parent="358" name="PRIMARY">
+    <key id="413" parent="358" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="412" parent="359" name="ID">
+    <column id="414" parent="359" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="413" parent="359" name="Prod_name">
+    <column id="415" parent="359" name="Prod_name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="414" parent="359" name="UnitPrice">
+    <column id="416" parent="359" name="UnitPrice">
       <Position>3</Position>
       <DataType>float|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="415" parent="359" name="Color">
+    <column id="417" parent="359" name="Color">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="416" parent="359" name="Size">
+    <column id="418" parent="359" name="Size">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="417" parent="359" name="Picture">
+    <column id="419" parent="359" name="Picture">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="418" parent="359" name="Status">
+    <column id="420" parent="359" name="Status">
       <Position>7</Position>
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="419" parent="359" name="Discount">
+    <column id="421" parent="359" name="Discount">
       <Position>8</Position>
       <DataType>float|0s</DataType>
     </column>
-    <column id="420" parent="359" name="Note">
+    <column id="422" parent="359" name="Note">
       <Position>9</Position>
       <DataType>varchar(100)|0s</DataType>
     </column>
-    <column id="421" parent="359" name="SupplierID">
+    <column id="423" parent="359" name="SupplierID">
       <Position>10</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="422" parent="359" name="CategoryID">
+    <column id="424" parent="359" name="CategoryID">
       <Position>11</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="423" parent="359" name="CreatedAt">
+    <column id="425" parent="359" name="CreatedAt">
       <Position>12</Position>
       <DataType>date|0s</DataType>
     </column>
-    <index id="424" parent="359" name="FKProducts33027">
+    <column id="426" parent="359" name="UnitInStock">
+      <Position>13</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="427" parent="359" name="UnitSold">
+      <Position>14</Position>
+      <DataType>int(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="428" parent="359" name="FKProducts33027">
       <ColNames>SupplierID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="425" parent="359" name="FKProducts896661">
+    <index id="429" parent="359" name="FKProducts896661">
       <ColNames>CategoryID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="426" parent="359" name="PRIMARY">
+    <key id="430" parent="359" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="427" parent="359" name="FKProducts33027">
+    <foreign-key id="431" parent="359" name="FKProducts33027">
       <ColNames>SupplierID</ColNames>
       <RefTableName>suppliers</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="428" parent="359" name="FKProducts896661">
+    <foreign-key id="432" parent="359" name="FKProducts896661">
       <ColNames>CategoryID</ColNames>
       <RefTableName>categories</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="429" parent="360" name="ID">
+    <column id="433" parent="360" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="430" parent="360" name="Shipper_name">
+    <column id="434" parent="360" name="Shipper_name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="431" parent="360" name="Company_name">
+    <column id="435" parent="360" name="Company_name">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="432" parent="360" name="Phone">
+    <column id="436" parent="360" name="Phone">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="433" parent="360" name="PRIMARY">
+    <key id="437" parent="360" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="434" parent="361" name="ID">
+    <column id="438" parent="361" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="435" parent="361" name="Road">
+    <column id="439" parent="361" name="Road">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="436" parent="361" name="State">
+    <column id="440" parent="361" name="State">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="437" parent="361" name="City">
+    <column id="441" parent="361" name="City">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="438" parent="361" name="CustomerID">
+    <column id="442" parent="361" name="CustomerID">
       <Position>5</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="439" parent="361" name="FKShippingAd944535">
+    <index id="443" parent="361" name="FKShippingAd944535">
       <ColNames>CustomerID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="440" parent="361" name="PRIMARY">
+    <key id="444" parent="361" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="441" parent="361" name="FKShippingAd944535">
+    <foreign-key id="445" parent="361" name="FKShippingAd944535">
       <ColNames>CustomerID</ColNames>
       <RefTableName>customers</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="442" parent="362" name="ID">
+    <column id="446" parent="362" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="443" parent="362" name="Username">
+    <column id="447" parent="362" name="Username">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="444" parent="362" name="Password">
+    <column id="448" parent="362" name="Password">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="445" parent="362" name="Phone">
+    <column id="449" parent="362" name="Phone">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="446" parent="362" name="Email">
+    <column id="450" parent="362" name="Email">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="447" parent="362" name="Role">
+    <column id="451" parent="362" name="Role">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="448" parent="362" name="PRIMARY">
+    <key id="452" parent="362" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="449" parent="363" name="ID">
+    <column id="453" parent="363" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="450" parent="363" name="Sup_name">
+    <column id="454" parent="363" name="Sup_name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="451" parent="363" name="Address">
+    <column id="455" parent="363" name="Address">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="452" parent="363" name="City">
+    <column id="456" parent="363" name="City">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="453" parent="363" name="Phone">
+    <column id="457" parent="363" name="Phone">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="454" parent="363" name="Email">
+    <column id="458" parent="363" name="Email">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="455" parent="363" name="PRIMARY">
+    <key id="459" parent="363" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>

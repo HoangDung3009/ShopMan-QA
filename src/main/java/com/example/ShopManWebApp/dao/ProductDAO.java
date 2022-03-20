@@ -65,6 +65,8 @@ public class ProductDAO extends DAO{
                 product.setDescription(rs.getString(9));
                 product.setCategory(categoryDAO.getCategoryById(rs.getInt(10)));
                 product.setSupplier(supplierDAO.getSupplierById(rs.getInt(11)));
+                product.setUnitInStock(rs.getInt(13));
+                product.setUnitSold(rs.getInt(14));
 
                 products.add(product);
             }
@@ -93,10 +95,27 @@ public class ProductDAO extends DAO{
                 product.setDescription(rs.getString(9));
                 product.setCategory(categoryDAO.getCategoryById(rs.getInt(10)));
                 product.setSupplier(supplierDAO.getSupplierById(rs.getInt(11)));
+                product.setUnitInStock(rs.getInt(13));
+                product.setUnitSold(rs.getInt(14));
             }
         } catch (Exception e){
             logger.log(Level.SEVERE, "Fail getAllProduct", e);
         }
         return product;
+    }
+
+    public void updateQuantity(Product product){
+        String sql = "UPDATE products SET UnitInStock = ?, UnitSold=? WHERE ID = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, product.getUnitInStock());
+            ps.setInt(2, product.getUnitSold());
+            ps.setInt(3, product.getId());
+            ps.executeUpdate();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

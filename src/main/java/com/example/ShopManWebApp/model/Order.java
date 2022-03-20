@@ -10,6 +10,24 @@ public class Order implements Serializable {
     private ShippingAddress shippingAddress;
     private Payment payment;
     private String orderDate;
+    private String status;
+    private String receive_date;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getReceive_date() {
+        return receive_date;
+    }
+
+    public void setReceive_date(String receive_date) {
+        this.receive_date = receive_date;
+    }
 
     public int getId() {
         return id;
