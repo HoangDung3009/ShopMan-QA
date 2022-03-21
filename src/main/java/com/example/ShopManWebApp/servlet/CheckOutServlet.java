@@ -37,20 +37,26 @@ public class CheckOutServlet extends HttpServlet {
         ShippingAddress address = new ShippingAddress();
         Payment payment = new Payment();
         Shipper shipper = new Shipper();
-        Staff staff = new Staff();
+
 
 //        Them dia chi
         address.setCity(request.getParameter("city"));
         address.setDistrict(request.getParameter("district"));
         address.setRoad(request.getParameter("road"));
         address.setCustomer(customer);
-        shippingAddressDAO.addShipAddress(address);
+        ShippingAddress ad1 = shippingAddressDAO.checkAddress(address);
+        if (ad1 == null){
+            shippingAddressDAO.addShipAddress(address);
+        }
+
+//        Check id dia chi
+        System.out.println(address.getId());
 
         shipper.setId(Integer.parseInt(request.getParameter("shipper")));
         payment.setId(Integer.parseInt(request.getParameter("payment")));
 
         Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String order_date = dateFormat.format(date);
 
         order.setOrderDate(order_date);
@@ -58,7 +64,6 @@ public class CheckOutServlet extends HttpServlet {
         order.setCustomer(customer);
         order.setPayment(payment);
         order.setShippingAddress(address);
-        order.setStaff(staff);
         order.setReceive_date("");
         order.setStatus("Processing...");
 //luu order vao csdl

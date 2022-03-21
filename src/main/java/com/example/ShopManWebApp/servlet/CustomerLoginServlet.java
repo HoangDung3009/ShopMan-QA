@@ -30,7 +30,7 @@ public class CustomerLoginServlet extends HttpServlet {
         HttpSession httpSession = request.getSession();
         if(customer == null){
             httpSession.setAttribute("message","*Invalid Details !! Try with another one*");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("views/customer-login.jsp");
             return;
         }else {
             httpSession.setAttribute("current-customer", customer);

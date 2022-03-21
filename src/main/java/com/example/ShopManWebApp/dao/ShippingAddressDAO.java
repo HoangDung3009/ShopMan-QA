@@ -1,5 +1,6 @@
 package com.example.ShopManWebApp.dao;
 
+import com.example.ShopManWebApp.model.Customer;
 import com.example.ShopManWebApp.model.OrderDetail;
 import com.example.ShopManWebApp.model.ShippingAddress;
 
@@ -33,6 +34,35 @@ public class ShippingAddressDAO extends DAO{
         }catch(Exception e){
             e.printStackTrace();
         }
+
+
+    }
+
+    public ShippingAddress checkAddress(ShippingAddress shippingAddress){
+        ShippingAddress address = null;
+        String sql = "SELECT * FROM shippingaddress where CustomerID = ? AND City = ? AND State = ? AND Road = ?";
+
+        try{
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, shippingAddress.getCustomer().getId());
+            ps.setString(2, shippingAddress.getCity());
+            ps.setString(3, shippingAddress.getDistrict());
+            ps.setString(4, shippingAddress.getRoad());
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                address = new ShippingAddress();
+                address.setId(rs.getInt(1));
+                address.setRoad(rs.getString(2));
+                address.setDistrict(rs.getString(3));
+                address.setCity(rs.getString(4));
+                Customer c = new Customer(); c.setId(rs.getInt(5));
+                address.setCustomer(c);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return address;
     }
 
 

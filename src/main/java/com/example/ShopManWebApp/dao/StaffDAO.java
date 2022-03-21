@@ -15,19 +15,21 @@ public class StaffDAO extends DAO{
     }
 
     public Staff checkLogin(String username, String password){
-        Staff staff = new Staff();
-        String query = "select * from staffs where username = ? and password = ?";
+        Staff staff = null;
+        String query = "select * from staffs where Username = ? and Password = ?";
         try{
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, username);
             ps.setString(2,password);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                staff.setId(rs.getInt("ID"));
-                staff.setPhone(rs.getString("Phone"));
-                staff.setEmail(rs.getString("Email"));
-                staff.setUsername(rs.getString("Username"));
-                staff.setPassword(rs.getString("Password"));
+                staff = new Staff();
+                staff.setId(rs.getInt(1));
+                staff.setUsername(rs.getString(2));
+                staff.setUsername(rs.getString(3));
+                staff.setPhone(rs.getString(4));
+                staff.setEmail(rs.getString(5));
+                staff.setRole(rs.getString(6));
             }
         }catch (Exception e){
             logger.log(Level.SEVERE, "Fail checkLogin", e);

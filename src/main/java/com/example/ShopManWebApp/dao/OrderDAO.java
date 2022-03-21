@@ -47,7 +47,7 @@ public class OrderDAO extends DAO{
     }
 
     public void addOrder(Order order){
-        String sql = "INSERT INTO orders (Oreder_date, ShipperID, CustomerID, PaymentID, ShippingAddressID, StaffID, Status) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO orders (Oreder_date, ShipperID, CustomerID, PaymentID, ShippingAddressID, Status) VALUES(?,?,?,?,?,?)";
         try{
             PreparedStatement ps = con.prepareStatement(sql,
                     Statement.RETURN_GENERATED_KEYS);
@@ -56,8 +56,7 @@ public class OrderDAO extends DAO{
             ps.setInt(3, order.getCustomer().getId());
             ps.setInt(4, order.getPayment().getId());
             ps.setInt(5, order.getShippingAddress().getId());
-            ps.setInt(6, order.getStaff().getId());
-            ps.setString(7, order.getStatus());
+            ps.setString(6, order.getStatus());
 
 
             ps.executeUpdate();

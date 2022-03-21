@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Product List</title>
+    <title>Checkout</title>
     <meta name="robots" content="noindex, follow"/>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -166,7 +166,7 @@
                                 </table>
 
                                 <div class="order-button-payment">
-                                    <input value="Place order" type="submit" form="checkoutForm" onclick="alert('Đặt hàng thành công !!')">
+                                    <input value="Place order" type="submit" form="checkoutForm">
                                 </div>
                             </div>
                         </div>

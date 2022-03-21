@@ -128,7 +128,7 @@
                                         <ul class="quantity-with-btn pb-7">
                                             <li class="quantity">
                                                 <div class="cart-plus-minus">
-                                                    <input class="cart-plus-minus-box" min="1" value="1" type="number" name="quantity">
+                                                    <input class="cart-plus-minus-box" min="1" max="<%=product.getUnitInStock()%>" value="1" type="number" name="quantity">
                                                     <input type="hidden" value="<%=id%>" name="product_id">
                                                     <input type="hidden" name="command" value="setCart">
                                                 </div>
