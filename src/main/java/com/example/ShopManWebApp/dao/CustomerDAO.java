@@ -30,13 +30,39 @@ public class CustomerDAO extends DAO{
                 c.setEmail(rs.getString(4));
                 c.setUsername(rs.getString(5));
                 c.setPassword(rs.getString(6));
-                c.setPassword(rs.getString(7));
-                c.setPassword(rs.getString(8));
-                c.setPassword(rs.getString(9));
-                c.setPassword(rs.getString(10));
+                c.setCreditCard(rs.getString(7));
+                c.setCreditCardType(rs.getString(8));
+                c.setCardExpMonth(rs.getString(9));
+                c.setCardExpYear(rs.getString(10));
             }
         }catch (Exception e){
             logger.log(Level.SEVERE, "Fail checkLogin", e);
+        }
+        return c;
+    }
+
+    public Customer getCustomerById(int id){
+        Customer c = null;
+        String query = "SELECT * FROM customers WHERE ID = ?";
+        try{
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                c = new Customer();
+                c.setId(rs.getInt(1));
+                c.setCusName(rs.getString(2));
+                c.setPhone(rs.getString(3));
+                c.setEmail(rs.getString(4));
+                c.setUsername(rs.getString(5));
+                c.setPassword(rs.getString(6));
+                c.setCreditCard(rs.getString(7));
+                c.setCreditCardType(rs.getString(8));
+                c.setCardExpMonth(rs.getString(9));
+                c.setCardExpYear(rs.getString(10));
+            }
+        }catch (Exception e){
+            logger.log(Level.SEVERE, "Fail getCustomer", e);
         }
         return c;
     }

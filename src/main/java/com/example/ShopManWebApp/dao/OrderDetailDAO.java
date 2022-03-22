@@ -66,4 +66,33 @@ public class OrderDetailDAO extends DAO{
             e.printStackTrace();
         }
     }
+
+    public List<OrderDetail> getOrderDetailById(int id){
+        List<OrderDetail> list = new ArrayList<>();
+        String sql = "SELECT * FROM orderdetails WHERE ProductID = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                OrderDetail o = new OrderDetail();
+                o.setId(rs.getInt(1));
+                o.setTotalPrice(rs.getDouble(2));
+                o.setQuantity(rs.getInt(3));
+                o.setShip_date(rs.getString(4));
+                Order od = new Order(); od.setId(rs.getInt(5));
+                Product p = new Product(); p.setId(rs.getInt(6));
+                o.setOrder(od);
+                o.setProduct(p);
+
+                list.add(o);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
+    }
 }
