@@ -77,7 +77,7 @@ public class CheckOutServlet extends HttpServlet {
                 i.setOrder(order);
 //                luu chi tiet order vao csdl
                 orderDetailDAO.addOrderDetail(i);
-                productDAO.updateQuantity(p);
+//                productDAO.updateQuantity(p);
             }
         }
 
