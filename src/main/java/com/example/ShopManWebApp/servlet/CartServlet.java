@@ -37,7 +37,7 @@ public class CartServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 System.out.println(cart.size());
                 session.setAttribute("cart", cart);
-                response.sendRedirect("views/cart.jsp");
+                response.sendRedirect("views/product-list.jsp");
             }
             else if (command.equals("setCart")){
                 Product p = productDAO.getProductById(id);
