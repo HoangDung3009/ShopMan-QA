@@ -91,7 +91,7 @@
                       <tbody>
                       <tr>
                         <td>Name :</td>
-                        <td class="text-dark font-weight-semibold"><%=c.getCusName()%> VNĐ</td>
+                        <td class="text-dark font-weight-semibold"><%=c.getCusName()%></td>
                       </tr>
                       <tr>
                         <td>Phone :</td>
