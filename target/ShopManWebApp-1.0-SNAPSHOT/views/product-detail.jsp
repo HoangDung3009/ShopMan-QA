@@ -134,7 +134,7 @@
                                                 </div>
                                             </li>
                                             <li class="add-to-cart">
-                                                <input class="btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0" type="submit" value="Add cart" onclick="alert('Add to Cart Successfully')"/>
+                                                <input class="btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0" type="submit" value="Add cart"/>
                                             </li>
                                         </ul>
                                     </form>
