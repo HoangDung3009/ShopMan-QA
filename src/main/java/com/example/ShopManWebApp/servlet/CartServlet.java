@@ -30,7 +30,7 @@ public class CartServlet extends HttpServlet {
             String command = request.getParameter("command");
             int id = Integer.parseInt(request.getParameter("product_id"));
 
-            if (command.equals("addCart")){
+            if (command.equals("QuickAddCart")){
                 Product p = productDAO.getProductById(id);
                 addToCart(p);
 
@@ -38,6 +38,15 @@ public class CartServlet extends HttpServlet {
                 System.out.println(cart.size());
                 session.setAttribute("cart", cart);
                 response.sendRedirect("views/product-list.jsp");
+            }
+            else if (command.equals("addCart")){
+                Product p = productDAO.getProductById(id);
+                addToCart(p);
+
+                HttpSession session = request.getSession();
+                System.out.println(cart.size());
+                session.setAttribute("cart", cart);
+                response.sendRedirect("views/cart.jsp");
             }
             else if (command.equals("setCart")){
                 Product p = productDAO.getProductById(id);

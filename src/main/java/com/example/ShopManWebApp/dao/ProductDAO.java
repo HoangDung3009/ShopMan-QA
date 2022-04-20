@@ -77,13 +77,14 @@ public class ProductDAO extends DAO{
     }
 
     public Product getProductById(int id){
-        Product product =  new Product();
+        Product product = null;
         String query = "SELECT * FROM products WHERE ID = ?";
         try{
             PreparedStatement ps = con.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
+                product =  new Product();
                 product.setId(rs.getInt(1));
                 product.setProdName(rs.getString(2));
                 product.setPrice(rs.getDouble(3));
@@ -104,18 +105,18 @@ public class ProductDAO extends DAO{
         return product;
     }
 
-    public void updateQuantity(Product product){
-        String sql = "UPDATE products SET UnitInStock = ?, UnitSold=? WHERE ID = ?";
-
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, product.getUnitInStock());
-            ps.setInt(2, product.getUnitSold());
-            ps.setInt(3, product.getId());
-            ps.executeUpdate();
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    public void updateQuantity(Product product){
+//        String sql = "UPDATE products SET UnitInStock = ?, UnitSold=? WHERE ID = ?";
+//
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setInt(1, product.getUnitInStock());
+//            ps.setInt(2, product.getUnitSold());
+//            ps.setInt(3, product.getId());
+//            ps.executeUpdate();
+//
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 }

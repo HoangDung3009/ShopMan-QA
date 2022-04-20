@@ -26,7 +26,7 @@ public class StaffDAO extends DAO{
                 staff = new Staff();
                 staff.setId(rs.getInt(1));
                 staff.setUsername(rs.getString(2));
-                staff.setUsername(rs.getString(3));
+                staff.setPassword(rs.getString(3));
                 staff.setPhone(rs.getString(4));
                 staff.setEmail(rs.getString(5));
                 staff.setRole(rs.getString(6));

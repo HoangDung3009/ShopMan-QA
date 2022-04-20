@@ -89,7 +89,7 @@
                                                     <div class="product-add-action">
                                                         <ul>
                                                             <li>
-                                                                <a href="${pageContext.request.contextPath}/Cart?command=addCart&product_id=<%=product.getId()%>" onclick="alert('Added to cart !!')">
+                                                                <a href="${pageContext.request.contextPath}/Cart?command=QuickAddCart&product_id=<%=product.getId()%>" onclick="alert('Added to cart !!')">
                                                                     <i class="pe-7s-cart"></i>
                                                                 </a>
                                                             </li>
