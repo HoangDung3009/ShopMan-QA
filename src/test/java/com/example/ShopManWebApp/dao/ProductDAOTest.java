@@ -44,8 +44,4 @@ class ProductDAOTest {
         Product product = productDAO.getProductById(id);
         assertEquals(0, product.getId());
     }
-
-    @Test
-    void updateQuantity() {
-    }
 }
