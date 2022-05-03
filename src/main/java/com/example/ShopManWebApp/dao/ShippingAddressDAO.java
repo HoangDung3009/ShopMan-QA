@@ -17,7 +17,7 @@ public class ShippingAddressDAO extends DAO{
         String sql = "INSERT INTO shippingaddress (Road, State, City, CustomerID) VALUES(?,?,?,?)";
         try{
             PreparedStatement ps = con.prepareStatement(sql,
-                    Statement.RETURN_GENERATED_KEYS);;
+                    Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, shippingAddress.getRoad());
             ps.setString(2, shippingAddress.getDistrict());
             ps.setString(3, shippingAddress.getCity());

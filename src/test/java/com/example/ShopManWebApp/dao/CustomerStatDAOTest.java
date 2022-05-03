@@ -27,10 +27,10 @@ class CustomerStatDAOTest {
 
     @Test
     void getCustomerStat2() {
-        String startDate = "31-02-2020";
-        String endDate = "01-01-2023";
+        String startDate = "2020-01-01";
+        String endDate = "2023-01-01";
         List<CustomerStat> customerStatList = customerStatDAO.getCustomerStat(startDate, endDate);
-        assertEquals(0, customerStatList.get(0).getRevenue());
+        assertEquals(3700000, customerStatList.get(0).getRevenue());
 
     }
 
@@ -43,22 +43,22 @@ class CustomerStatDAOTest {
 
     @Test
     void getCustomerStat4() {
-        String startDate = "dfgkjkhdkfhflassdfjds";
+        String startDate = "2022-04-01";
         List<CustomerStat> customerStatList = customerStatDAO.getCustomerStat1(startDate);
         assertEquals(0, customerStatList.get(0).getRevenue());
     }
 
     @Test
     void getCustomerStat5() {
-        String endDate = "01-01-2021";
+        String endDate = "2021-01-01";
         List<CustomerStat> customerStatList = customerStatDAO.getCustomerStat2(endDate);
-        assertEquals(0, customerStatList.get(1).getRevenue());
+        assertEquals(0, customerStatList.get(0).getRevenue());
     }
 
     @Test
     void getCustomerStat6() {
-        String endDate = "01-04-2022";
+        String endDate = "2022-04-01";
         List<CustomerStat> customerStatList = customerStatDAO.getCustomerStat2(endDate);
-        assertEquals(0, customerStatList.get(0).getRevenue());
+        assertEquals(3700000, customerStatList.get(0).getRevenue());
     }
 }
